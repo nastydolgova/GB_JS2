@@ -16,6 +16,7 @@ body {
     display: flex;
     justify-content: space-between;
     box-sizing: border-box;
+    position: relative;
 }
 
 .main-header-logo {
@@ -62,7 +63,7 @@ body {
     background-image: none;
 }
 
-.main-header-form-button {
+.btn-cart {
     width: 20px;
     height: 30px;
     background-image: url(../img/icon-cart.png);
@@ -74,11 +75,11 @@ body {
     margin: 0 0 0 20px;
 }
 
-.main-header-form-button:hover {
+.btn-cart:hover {
     transform: scale(1.2);
 }
 
-.cart-hidden{
+.invisible{
     display: none;
 }
 
@@ -127,7 +128,8 @@ body {
     margin: 0;
 }
 
-.buy-btn{
+.buy-btn,
+.del-btn{
     background-color: #F9F0DA;
     border: 2px solid #015666;
     width: 100px;
@@ -144,10 +146,93 @@ body {
     text-transform: uppercase;
 }
 
-.buy-btn:hover{
+.buy-btn:hover,
+.del-btn:hover{
     transform: scale(1.2);
 }
 
+.cart-block:before{
+    content: '';
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: -10px;
+    right: 100px;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid white;
+}
+
+.cart-block{
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.62);
+    border-radius: 5px;
+    box-sizing: border-box;
+    right: 0;
+    top: 70%;
+    position: absolute;
+    background-color: white;
+    padding: 20px;
+    color: black;
+    width: 300px;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+}
+.cart-item:not(:last-child){
+    margin-bottom: 20px;
+}
+.product-bio{
+    display: flex;
+}
+.cart-item img{
+    align-self: flex-start;
+    margin-right: 15px;
+}
+.product-single-price{
+    color: #474747;
+    font-size: 0.5em;
+}
+.product-price{
+    margin-left: 30px;
+}
+.product-desc{
+    max-width: 150px;
+}
+.product-quantity {
+    margin-top: 15px;
+    font-size: 0.75em;
+}
+.right-block{
+    text-align: right;
+}
+.btn-search {
+    background-color: transparent;
+    border: none;
+    color: #fafafa;
+    font-size: 1.2em;
+    position: absolute;
+    bottom: 5px;
+    right: 0;
+}
+.search-form{
+    position: relative;
+    margin-right: 50px;
+    display: inline-block;
+}
+.search-field:focus{
+    outline: none;
+}
+.search-field {
+    box-sizing: border-box;
+    width: 200px;
+    color: #fafafa;
+    padding: 10px;
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid #fafafa;
+}
 
 
 
