@@ -148,7 +148,7 @@ body {
 
 .buy-btn:hover,
 .del-btn:hover{
-    transform: scale(1.2);
+    transform: scale(1.1);
 }
 
 .cart-block:before{

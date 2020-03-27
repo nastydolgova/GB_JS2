@@ -6,7 +6,6 @@
     <link rel="stylesheet" href="css/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-
 <body>
     <div class="container" id="app">
         <header class="main-header">
@@ -15,10 +14,33 @@
                 <span class="main-header-logo-txt">eShop</span>
             </a>
             <div class="main-header-div">
+<!--
                 <form action="#" @submit.prevent="filter">
                     <input class="main-header-form-search" placeholder="Поиск" type="search" v-model="userSearch">
                 </form>
+-->
+               <filter_el></filter_el>
                 <button class="btn-cart" type="button" @click="showCart = !showCart"></button>
+                <cart :cart-items="cartItems"
+            :img="imgCart"
+            :visibility="showCart"
+            @remove="remove"></cart>
+            </div>
+        </header>
+        <main>
+          <products :products="filtered" :img="imgProduct" @add-product="addProduct" ref="products"></products>
+        </main>
+        <script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js" integrity="sha384-0pzryjIRos8mFBWMzSSZApWtPl/5++eIfzYmTgBBmXYdhvxPc+XcFEk+zJwDgWbP" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script src="js/ProductComponent.js"></script>
+        <script src="js/CartComponent.js"></script>
+        <script src="js/FilterComponent.js"></script>
+        <script src="js/main.js"></script>
+    </div>
+</body>
+</html>
+
+<!--
                 <div class="cart-block" v-show="showCart">
                     <p v-if="!cartItems.length">Cart is empty</p>
                     <div class="cart-item" v-for="item of cartItems" :key="item.id_product">
@@ -35,10 +57,10 @@
                             <button class="del-btn" @click="remove(item)">&times;</button>
                         </div>
                     </div>
-                </div>
-            </div>
-        </header>
-        <main>
+                </div>-->
+                
+                
+<!--
             <div class="products">
                 <div class="product-item" v-for="product of filtered" :key="product.id_product">
                     <img :src="imgProduct" alt="Some img" class="products-item-img">
@@ -49,41 +71,4 @@
                     </div>
                 </div>
             </div>
-        </main>
-        <script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js" integrity="sha384-0pzryjIRos8mFBWMzSSZApWtPl/5++eIfzYmTgBBmXYdhvxPc+XcFEk+zJwDgWbP" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-        <script src="js/main.js"></script>
-    </div>
-</body></html>
-
-
-<!--
-<div class="product-item" data-id="${this.id_product}">
-                        <img src="${this.img}" alt="Some img" class="products-item-img">
-                        <div class="desc">
-                        <h3 class="products-item-name">${this.product_name}</h3>
-                        <p class="products-item-price">${this.price}</p>
-                        <button class="buy-btn" data-id="${this.id_product}" 
-                                                data-name="${this.product_name}" 
-                                                data-price="${this.price}">Купить</button>
-                 </div>
-                </div>`-->
-
-
-
-<!--
-
-`<div class="cart-item" data-id="${this.id_product}">
-            <div class="product-bio">
-            <img src="${this.img}" alt="Some image">
-            <div class="product-desc">
-            <p class="product-title">${this.product_name}</p>
-            <p class="product-quantity">Quantity: ${this.quantity}</p>
-        <p class="product-single-price">$${this.price} each</p>
-        </div>
-        </div>
-        <div class="right-block">
-            <p class="product-price">$${this.quantity*this.price}</p>
-            <button class="del-btn" data-id="${this.id_product}">&times;</button>
-        </div>
-        </div>`-->
+-->

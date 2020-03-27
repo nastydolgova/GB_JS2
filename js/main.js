@@ -48,7 +48,7 @@ const app = new Vue({
                 })
         },
         filter(){
-            let regexp = new RegExp(this.userSearch, 'i');
+            let regexp = new RegExp(this.userSearch, 'ig');
             this.filtered = this.products.filter(el => regexp.test(el.product_name));
         }
     },
