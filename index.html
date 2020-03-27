@@ -6,25 +6,84 @@
     <link rel="stylesheet" href="css/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
+
 <body>
-   <div class="container">
-    <header class="main-header">
+    <div class="container" id="app">
+        <header class="main-header">
             <a class="main-header-logo">
                 <img src="https://placehold.it/100x100/5FBDCE" alt="#" class="main-header-logo-img">
                 <span class="main-header-logo-txt">eShop</span>
             </a>
-            <form class="main-header-form" action="#">
-                <input class="main-header-form-search" placeholder="Поиск" type="search">
-                <button class="btn-cart" type="button"></button>
-            </form>
-            <div class="cart-block invisible">
+            <div class="main-header-div">
+                <form action="#" @submit.prevent="filter">
+                    <input class="main-header-form-search" placeholder="Поиск" type="search" v-model="userSearch">
+                </form>
+                <button class="btn-cart" type="button" @click="showCart = !showCart"></button>
+                <div class="cart-block" v-show="showCart">
+                    <p v-if="!cartItems.length">Cart is empty</p>
+                    <div class="cart-item" v-for="item of cartItems" :key="item.id_product">
+                        <div class="product-bio">
+                            <img :src="imgCart" alt="Some img">
+                            <div class="product-desc">
+                                <div class="product-title">{{ item.product_name }}</div>
+                                <div class="product-quantity">Quantity: {{ item.quantity }}</div>
+                                <div class="product-single-price">$ {{ item.price }} each</div>
+                            </div>
+                        </div>
+                        <div class="right-block">
+                            <div class="product-price">{{item.quantity*item.price}}</div>
+                            <button class="del-btn" @click="remove(item)">&times;</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </header>
-    <main>
-        <div class="products"></div>
-    </main>
-    <script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js" integrity="sha384-0pzryjIRos8mFBWMzSSZApWtPl/5++eIfzYmTgBBmXYdhvxPc+XcFEk+zJwDgWbP" crossorigin="anonymous"></script>
-    <script src="js/main.js"></script>
-   </div>
-</body>
-</html>
+        <main>
+            <div class="products">
+                <div class="product-item" v-for="product of filtered" :key="product.id_product">
+                    <img :src="imgProduct" alt="Some img" class="products-item-img">
+                    <div class="desc">
+                        <h3 class="products-item-name">{{product.product_name}}</h3>
+                        <p class="products-item-price">{{product.price}}</p>
+                        <button class="buy-btn" @click="addProduct(product)">Купить</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js" integrity="sha384-0pzryjIRos8mFBWMzSSZApWtPl/5++eIfzYmTgBBmXYdhvxPc+XcFEk+zJwDgWbP" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script src="js/main.js"></script>
+    </div>
+</body></html>
+
+
+<!--
+<div class="product-item" data-id="${this.id_product}">
+                        <img src="${this.img}" alt="Some img" class="products-item-img">
+                        <div class="desc">
+                        <h3 class="products-item-name">${this.product_name}</h3>
+                        <p class="products-item-price">${this.price}</p>
+                        <button class="buy-btn" data-id="${this.id_product}" 
+                                                data-name="${this.product_name}" 
+                                                data-price="${this.price}">Купить</button>
+                 </div>
+                </div>`-->
+
+
+
+<!--
+
+`<div class="cart-item" data-id="${this.id_product}">
+            <div class="product-bio">
+            <img src="${this.img}" alt="Some image">
+            <div class="product-desc">
+            <p class="product-title">${this.product_name}</p>
+            <p class="product-quantity">Quantity: ${this.quantity}</p>
+        <p class="product-single-price">$${this.price} each</p>
+        </div>
+        </div>
+        <div class="right-block">
+            <p class="product-price">$${this.quantity*this.price}</p>
+            <button class="del-btn" data-id="${this.id_product}">&times;</button>
+        </div>
+        </div>`-->

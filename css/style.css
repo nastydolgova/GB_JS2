@@ -30,14 +30,12 @@ body {
     color: #F9F0DA;
 }
 
-.main-header-form {
-    align-self: center;
-    align-items: center;
-}
-
-.main-header-form {
+.main-header-form,
+.main-header-div {
     height: 50px;
     display: flex;
+        align-self: center;
+    align-items: center;
 }
 
 .main-header-form-search {
@@ -53,7 +51,7 @@ body {
     background-image: url(../img/icon-search.png);
     background-repeat: no-repeat;
     background-position: right;
-
+    background-size:contain;
 }
 
 .main-header-form-search:focus {
@@ -61,6 +59,8 @@ body {
     z-index: 1;
     border-bottom: 2px solid #F9F0DA;
     background-image: none;
+    color: #F9F0DA;
+    font-size: 20px;
 }
 
 .btn-cart {
@@ -69,7 +69,7 @@ body {
     background-image: url(../img/icon-cart.png);
     border: 1px solid transparent;
     background-repeat: no-repeat;
-    background-size: 100%;
+    background-size:contain;
     outline: none;
     background-color: transparent;
     margin: 0 0 0 20px;
