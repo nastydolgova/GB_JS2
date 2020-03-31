@@ -3,72 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <title>eShop</title>
+    <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/style.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-    <div class="container" id="app">
-        <header class="main-header">
-            <a class="main-header-logo">
+<div class="container" id="app">
+    <header class="main-header">
+        <a class="main-header-logo">
                 <img src="https://placehold.it/100x100/5FBDCE" alt="#" class="main-header-logo-img">
                 <span class="main-header-logo-txt">eShop</span>
             </a>
-            <div class="main-header-div">
-<!--
-                <form action="#" @submit.prevent="filter">
-                    <input class="main-header-form-search" placeholder="Поиск" type="search" v-model="userSearch">
-                </form>
--->
-               <filter_el></filter_el>
-                <button class="btn-cart" type="button" @click="showCart = !showCart"></button>
-                <cart :cart-items="cartItems"
-            :img="imgCart"
-            :visibility="showCart"
-            @remove="remove"></cart>
-            </div>
-        </header>
-        <main>
-          <products :products="filtered" :img="imgProduct" @add-product="addProduct" ref="products"></products>
-        </main>
-        <script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js" integrity="sha384-0pzryjIRos8mFBWMzSSZApWtPl/5++eIfzYmTgBBmXYdhvxPc+XcFEk+zJwDgWbP" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-        <script src="js/ProductComponent.js"></script>
-        <script src="js/CartComponent.js"></script>
-        <script src="js/FilterComponent.js"></script>
-        <script src="js/main.js"></script>
-    </div>
+        <div class="cart">
+            <filter_el></filter_el>
+            <cart ref="cart"></cart>
+        </div>
+    </header>
+    <main>
+        <products ref="products"></products>
+    </main>
+</div>
+    <script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js" integrity="sha384-0pzryjIRos8mFBWMzSSZApWtPl/5++eIfzYmTgBBmXYdhvxPc+XcFEk+zJwDgWbP" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="js/CartComp.js"></script>
+    <script src="js/ProdComp.js"></script>
+    <script src="js/FilterComp.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
-
-<!--
-                <div class="cart-block" v-show="showCart">
-                    <p v-if="!cartItems.length">Cart is empty</p>
-                    <div class="cart-item" v-for="item of cartItems" :key="item.id_product">
-                        <div class="product-bio">
-                            <img :src="imgCart" alt="Some img">
-                            <div class="product-desc">
-                                <div class="product-title">{{ item.product_name }}</div>
-                                <div class="product-quantity">Quantity: {{ item.quantity }}</div>
-                                <div class="product-single-price">$ {{ item.price }} each</div>
-                            </div>
-                        </div>
-                        <div class="right-block">
-                            <div class="product-price">{{item.quantity*item.price}}</div>
-                            <button class="del-btn" @click="remove(item)">&times;</button>
-                        </div>
-                    </div>
-                </div>-->
-                
-                
-<!--
-            <div class="products">
-                <div class="product-item" v-for="product of filtered" :key="product.id_product">
-                    <img :src="imgProduct" alt="Some img" class="products-item-img">
-                    <div class="desc">
-                        <h3 class="products-item-name">{{product.product_name}}</h3>
-                        <p class="products-item-price">{{product.price}}</p>
-                        <button class="buy-btn" @click="addProduct(product)">Купить</button>
-                    </div>
-                </div>
-            </div>
--->
