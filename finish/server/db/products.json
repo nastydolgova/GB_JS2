@@ -1,0 +1,44 @@
+[
+  {
+    "id_product": 124,
+    "product_name": "App",
+	"product_cat": "file",
+    "price": 4000,
+    "image": "/img/product.jpg"
+  },
+  {
+    "id_product": 457,
+    "product_name": "Logo",
+	"product_cat": "work",
+    "price": 1500,
+    "image": "/img/product.jpg"
+  },
+  {
+    "id_product": 567,
+    "product_name": "Web design",
+	"product_cat": "work",
+    "price": 3000,
+    "image": "/img/product.jpg"
+  },
+    {
+    "id_product": 123,
+    "product_name": "Photo",
+	"product_cat": "file",
+    "price": 100,
+    "image": "/img/product.jpg"
+  },
+    {
+    "id_product": 231,
+    "product_name": "Landing Page individual",
+	"product_cat": "work",
+    "price": 2100,
+    "image": "/img/product.jpg"
+  },
+  {
+    "id_product": 456,
+    "product_name": "Landing Page PSD",
+	"product_cat": "file",
+    "price": 1000,
+    "image": "/img/product.jpg"
+  }
+]
